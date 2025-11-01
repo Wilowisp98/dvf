@@ -1,8 +1,8 @@
 schema:
   id: ["int", false]
-  name: ["string", false]
+  name: ["str", false]
   age: ["int", true]
-  country: ["string", true]
+  country: ["str", true]
 
-primary_keys:
-  - id
+primary_keys: ["id"]
+

@@ -2,7 +2,7 @@ import sys
 from pathlib import Path
 from typing import List
 
-from src.config.config_loader import load_config
+from src.config.config_loader import ConfigLoader
 from src.readers.reader_factory import ReaderFactory
 from src.validations.validation_manager import ValidationManager
 from src.validations.pk_null_validator import PKNullValidator
@@ -15,13 +15,13 @@ def main():
     data_path = Path(args.data_file)
 
     try:
-        config = load_config(config_path)
+        config = ConfigLoader.load(config_path) 
     except Exception as e:
-        print(f"[CONFIG ERROR] | {e}")
+        print(f"[CONFIG ERROR] | {e}") 
         sys.exit(1)
 
     try:
-        reader = ReaderFactory.create_reader(data_path, schema=list(config.schema.keys()))
+        reader = ReaderFactory.create_reader(data_path)
     except Exception as e:
         print(f"[READER ERROR] | {e}")
         sys.exit(1)

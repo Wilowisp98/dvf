@@ -1,0 +1,21 @@
+import csv
+from pathlib import Path
+from typing import Any, Dict, Iterator, Optional, List
+
+from src.readers.base_reader import BaseReader
+
+class CSVReader(BaseReader):
+    def __init__(self, file_path: Path, schema: Optional[List[str]] = None):
+        super().__init__(file_path, schema)
+
+    def read(self) -> Iterator[Dict[str, Any]]:
+        with open(self.file_path, mode="r", newline="", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+
+            if not reader.fieldnames:
+                raise ValueError(f"No headers found in CSV file: {self.file_path}")
+            
+            self._validate_schema(file_fields=reader.fieldnames)
+
+            for row in reader:
+                yield row

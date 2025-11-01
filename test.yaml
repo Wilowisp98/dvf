@@ -1,0 +1,8 @@
+schema:
+  id: ["int", false]
+  name: ["string", false]
+  age: ["int", true]
+  country: ["string", true]
+
+primary_keys:
+  - id

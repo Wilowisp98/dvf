@@ -1,0 +1,1 @@
+python -m src.main --config_file test.yaml --data_file test.csv

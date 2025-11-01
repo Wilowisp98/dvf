@@ -6,28 +6,29 @@ from src.config.config_loader import ConfigLoader
 from src.readers.reader_factory import ReaderFactory
 from src.validations.validation_manager import ValidationManager
 from src.validations.pk_null_validator import PKNullValidator
+from src.validations.schema_validator import SchemaValidator
 from src.utils import parse_args
 
 def main():
     args = parse_args()
-
     config_path = Path(args.config_file)
     data_path = Path(args.data_file)
 
     try:
         config = ConfigLoader.load(config_path) 
     except Exception as e:
-        print(f"[CONFIG ERROR] | {e}") 
+        print(f"[CONFIG ERROR] -> {e}") 
         sys.exit(1)
 
     try:
         reader = ReaderFactory.create_reader(data_path)
     except Exception as e:
-        print(f"[READER ERROR] | {e}")
+        print(f"[READER ERROR] -> {e}")
         sys.exit(1)
 
     validators: List = [
         PKNullValidator(primary_keys=config.primary_keys),
+        SchemaValidator(schema=config.schema)
     ]
     manager = ValidationManager(validators)
 
@@ -41,7 +42,7 @@ def main():
             total_errors += len(errors)
             print(f"[ROW {i}] Validation errors:")
             for err in errors:
-                print(f"  - {err}")
+                print(f"  -> {err}")
 
     if total_errors == 0:
         print(f"Validation successful: {total_rows} rows processed, no errors found.")

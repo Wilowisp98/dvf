@@ -1,7 +1,7 @@
 from pydantic import BaseModel, ConfigDict, field_validator
 from typing import Optional, Dict, List, Set
 
-ALLOWED_DATA_TYPES: Set[str] = {'int', 'str', 'date', 'float', 'decimal'}
+ALLOWED_DATA_TYPES: Set[str] = {'int', 'str', 'float', 'decimal'}
 
 class Config(BaseModel):
     model_config = ConfigDict(extra="forbid")

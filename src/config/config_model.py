@@ -6,11 +6,11 @@ ALLOWED_DATA_TYPES: Set[str] = {'int', 'str', 'float', 'decimal'}
 class Config(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
-    schema: Optional[Dict[str, tuple[str, bool]]] = None
+    table_schema: Optional[Dict[str, tuple[str, bool]]] = None
     primary_keys: Optional[List[str]] = None
     foreign_keys: Optional[List[str]] = None
 
-    @field_validator("schema")
+    @field_validator("table_schema")
     @classmethod
     def validate_schema_contents(cls, v):
         if v is None:

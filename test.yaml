@@ -1,4 +1,4 @@
-schema:
+table_schema:
   id: ["int", false]
   name: ["str", false]
   age: ["int", true]

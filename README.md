@@ -21,11 +21,21 @@ python -m unittest discover
 It's all run from `main.py`:
 
 ```bash
-# Basic run
+# Basic run (prints errors to console)
 python -m src.main --config_file test.yaml --data_file test.csv
 
-# Run with performance profiling (memory + time)
+# Run with performance profiling (prints profile to console)
 python -m src.main --config_file test.yaml --data_file test.csv --profile
+
+# Run and save results to a file (prints summary to console)
+# This saves to a default, timestamped file (e.g., test_YYYYMMDD_HHMMSS_results.txt)
+python -m src.main --config_file test.yaml --data_file test.csv --save_results
+
+# Run and save results to a *specific* file
+python -m src.main --config_file test.yaml --data_file test.csv --save_results output/my_report.txt
+
+# Run with all options enabled
+python -m src.main --config_file test.yaml --data_file test.csv --save_results --profile
 ```
 
 ## How to Add New Stuff

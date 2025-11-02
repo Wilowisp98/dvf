@@ -14,8 +14,5 @@ class ConfigLoader:
                 data = yaml.safe_load(file)
             else:
                 raise ValueError(f"Unsupported config file type: {config_path.suffix}")
-        
-        if not isinstance(data, dict):
-             raise ValueError(f"Invalid structure in {config_path}: must be a dictionary.")
 
         return Config(**data)

@@ -15,7 +15,7 @@ class ReaderFactory:
         if extension not in cls._readers:
             raise ValueError(
                 f"Unsupported file extension: {extension}.\n"
-                f"Supported file extensions: {', '.join(cls.readers.keys())}"
+                f"Supported file extensions: {', '.join(cls._readers.keys())}"
             )
         
         reader_class = cls._readers[extension]

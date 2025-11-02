@@ -1,1 +1,9 @@
 python -m src.main --config_file test.yaml --data_file test.csv
+python -m src.main --config_file test.yaml --data_file large_test.csv
+python -m src.main --config_file test.yaml --data_file large_test.csv --profile
+python -m tests.validations.test_schema_validator
+python -m tests.validations.test_pk_null_validator
+python -m tests.validations.test_pk_duplicates_validator
+python -m tests.readers.test_reader_factory
+python -m tests.readers.test_csv_reader
+python -m tests.config.test_config

@@ -12,8 +12,6 @@ class PKNullValidator(BaseValidator):
                 value = row.get(column)
 
                 if value is None or (isinstance(value, str) and not value.strip()):
-                    errors.append(f"Primary key column '{column}' is null or empty.")
-                elif column not in row:
-                    errors.append(f"Primary key column '{column}' is missing from the row.")
+                    errors.append(f"Primary key column '{column}' is null, empty or missing from the row.")
                     
         return errors

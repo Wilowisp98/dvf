@@ -208,3 +208,7 @@ __marimo__/
 
 # Other
 command.txt
+generate_data.py
+large_test.csv
+large_test_2.csv
+test.yaml

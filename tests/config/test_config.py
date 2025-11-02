@@ -33,12 +33,12 @@ class TestConfig(unittest.TestCase):
         config = Config(**data)
         
         self.assertIsNone(config.table_schema)
-        self.assertIsNone(config.primary_keys)
-        self.assertIsNone(config.foreign_keys)
+        self.assertIsNone(config.primary_key)
+        self.assertIsNone(config.composite_keys)
 
     def test_extra_fields_forbidden(self):
         data = {
-            "primary_keys": ["id"],
+            "primary_keys": ["id", "id_2"],
             "an_unknown_field": "some_value"
         }
         
@@ -48,7 +48,7 @@ class TestConfig(unittest.TestCase):
         self.assertIn("Extra inputs are not permitted", str(context.exception))
 
     def test_pydantic_invalid_pk_type(self):
-        data = {"primary_keys": "not-a-list"}
+        data = {"composite_keys": "not-a-list"}
         
         with self.assertRaises(ValidationError) as context:
             Config(**data)

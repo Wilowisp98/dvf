@@ -4,5 +4,7 @@ table_schema:
   age: ["int", true]
   country: ["str", true]
 
-primary_keys: ["id"]
+primary_key: "id"
+
+composite_keys: ["name", "country"]
 

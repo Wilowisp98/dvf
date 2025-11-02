@@ -12,3 +12,4 @@ class BaseReader(ABC):
     @abstractmethod
     def read(self) -> Iterator[Dict[str, Any]]:
         pass
+    

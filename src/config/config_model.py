@@ -7,8 +7,8 @@ class Config(BaseModel):
     model_config = ConfigDict(extra="forbid")
 
     table_schema: Optional[Dict[str, tuple[str, bool]]] = None
-    primary_keys: Optional[List[str]] = None
-    foreign_keys: Optional[List[str]] = None
+    primary_key: Optional[str] = None
+    composite_keys: Optional[List[str]] = None
 
     @field_validator("table_schema")
     @classmethod
@@ -24,4 +24,16 @@ class Config(BaseModel):
                 )
             if not isinstance(is_optional, bool):
                 raise ValueError(f"Optional flag for '{col}' must be a boolean")
+        return v
+    
+    @field_validator("composite_keys")
+    @classmethod
+    def validate_composite_keys(cls, v):
+        if v is None:
+            return None
+        
+        if len(v) < 2:
+            raise ValueError(
+                "Can't be a composite key and only have one key. Did you mean *primary key*?"
+            )
         return v

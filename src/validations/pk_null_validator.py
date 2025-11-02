@@ -1,17 +1,15 @@
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 from src.validations.base_validator import BaseValidator
 
 class PKNullValidator(BaseValidator):
-    def __init__(self, primary_keys: List[str]):
-        self.primary_keys = primary_keys
+    def __init__(self, primary_key: Optional[str]):
+        self.primary_key = primary_key
 
     def validate(self, row: Dict[str, Any]) -> List[str]:
-        errors = []
-        if self.primary_keys:
-            for column in self.primary_keys:
-                value = row.get(column)
+        if self.primary_key:
+            value = row.get(self.primary_key)
 
-                if value is None or (isinstance(value, str) and not value.strip()):
-                    errors.append(f"Primary key column '{column}' is null, empty or missing from the row.")
+            if value is None or (isinstance(value, str) and not value.strip()):
+                return ["Primary key column is null, empty or missing from the row."]
                     
-        return errors
+        return []

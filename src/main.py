@@ -7,7 +7,10 @@ from src.config.config_loader import ConfigLoader
 from src.readers.reader_factory import ReaderFactory
 from src.validations.validation_manager import ValidationManager
 from src.validations.pk_null_validator import PKNullValidator
-from src.validations.pk_duplicates_validator import PKDuplicateValidator
+from src.validations.pk_duplicate_validator import PKDuplicateValidator
+from src.validations.ck_null_validator import CKNullValidator
+from src.validations.ck_duplicates_validator import CKDuplicateValidator
+from src.validations.row_duplicates_validator import RowDuplicateValidator
 from src.validations.schema_validator import SchemaValidator
 from src.utils import parse_args, generate_filename, ValidationReporter
 
@@ -38,8 +41,11 @@ def main():
 
     validators: List = [
         SchemaValidator(schema=config.table_schema),
-        PKNullValidator(primary_keys=config.primary_keys),
-        PKDuplicateValidator(primary_keys=config.primary_keys)
+        PKNullValidator(primary_key=config.primary_key),
+        PKDuplicateValidator(primary_key=config.primary_key),
+        CKNullValidator(composite_keys=config.composite_keys),
+        CKDuplicateValidator(composite_keys=config.composite_keys),
+        RowDuplicateValidator()
     ]
     manager = ValidationManager(validators)
     

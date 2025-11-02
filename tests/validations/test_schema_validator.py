@@ -8,9 +8,7 @@ class TestSchemaValidator(unittest.TestCase):
             "id": ("int", False),
             "name": ("str", False)
         }
-        row = {
-            "id": "123", "name": "Alice"
-        }
+        row = {"id": "123", "name": "Alice"}
 
         validator = SchemaValidator(schema=schema)
         errors = validator.validate(row)
@@ -21,9 +19,7 @@ class TestSchemaValidator(unittest.TestCase):
         schema = {
             "id": ("int", False)
         }
-        row = {
-            "id": "not-a-number"
-        }
+        row = {"id": "not-a-number"}
 
         validator = SchemaValidator(schema=schema)
         errors = validator.validate(row)
@@ -35,9 +31,7 @@ class TestSchemaValidator(unittest.TestCase):
         schema = {
             "id": ("int", False)
         }
-        row = {
-            "name": "Bob"
-        }
+        row = {"name": "Bob"}
 
         validator = SchemaValidator(schema=schema)
         errors = validator.validate(row)
@@ -50,9 +44,7 @@ class TestSchemaValidator(unittest.TestCase):
             "id": ("int", False),
             "notes": ("str", True)
         }
-        row = {
-            "id": "123"
-        }
+        row = {"id": "123"}
 
         validator = SchemaValidator(schema=schema)
         errors = validator.validate(row)

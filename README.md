@@ -1,5 +1,3 @@
-# A Simple Data Validator
-
 This is a simple data validation framework, built to be easy to add new stuff to.
 
 The main goal for this little project was to have a baseline I could use for my daily work, where I can add new configs and validation rules on the fly without a bunch of hassle.

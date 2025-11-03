@@ -2,7 +2,7 @@ A collection of useful, no-fluff data engineering tools I've built to make my li
 
 ## Tools in this Kit
 
-1.  [Data Validation Framework (DVF)](https://github.com/Wilowisp98/dvf)
+1.  [Data Validation Framework (DVF)](https://github.com/Wilowisp98/dvf/tree/main/dvf)
 2.  [File Extension Converter (FEC)](https://github.com/Wilowisp98/dvf) *in-progress
 
 ---
@@ -13,4 +13,4 @@ A lightweight, memory-efficient framework for validating large data files row-by
 
 * **Checks:** Schema, data types, null primary keys, duplicates.
 * **Performance:** Doesn't load the whole file into memory.
-* **For full details:** [**See the DVF README](https://github.com/Wilowisp98/dvf)**
+* **For full details:** [**See the DVF README](https://github.com/Wilowisp98/dvf/blob/main/dvf/README.md)**

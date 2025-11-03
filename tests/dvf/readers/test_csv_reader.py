@@ -1,12 +1,12 @@
 import unittest
 from pathlib import Path
 
-from src.readers.csv_reader import CSVReader
+from src.dvf.readers.csv_reader import CSVReader
 
 class TestCSVReader(unittest.TestCase):
 
     def test_read_valid_csv(self):
-        path = Path("tests/readers/test_files/test_file_1.csv")
+        path = Path("tests/dvf/readers/test_files/test_file_1.csv")
 
         reader = CSVReader(path)
         rows = list(reader.read()) 
@@ -19,7 +19,7 @@ class TestCSVReader(unittest.TestCase):
         self.assertListEqual(rows, expected_rows)
 
     def test_read_headers_only_csv(self):
-        path = Path("tests/readers/test_files/test_file_4.csv")
+        path = Path("tests/dvf/readers/test_files/test_file_4.csv")
 
         reader = CSVReader(path)
         rows = list(reader.read())
@@ -27,7 +27,7 @@ class TestCSVReader(unittest.TestCase):
         self.assertListEqual(rows, [])
 
     def test_read_empty_file_raises_value_error(self):
-        path = Path("tests/readers/test_files/test_file_5.csv")
+        path = Path("tests/dvf/readers/test_files/test_file_5.csv")
         
         with self.assertRaises(ValueError) as context:
             reader = CSVReader(path)

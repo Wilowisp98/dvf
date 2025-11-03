@@ -1,6 +1,6 @@
 from typing import Dict, Any, List, Optional
 from decimal import Decimal
-from src.validations.base_validator import BaseValidator
+from src.dvf.validations.base_validator import BaseValidator
 
 class SchemaValidator(BaseValidator):
     def __init__(self, schema: Optional[Dict[str, tuple[str, bool]]]):

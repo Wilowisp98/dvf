@@ -1,5 +1,5 @@
 from typing import Dict, Any, List, Optional
-from src.validations.base_validator import BaseValidator
+from src.dvf.validations.base_validator import BaseValidator
 
 class PKNullValidator(BaseValidator):
     def __init__(self, primary_key: Optional[str]):

@@ -1,5 +1,5 @@
 import unittest
-from src.validations.ck_null_validator import CKNullValidator
+from src.dvf.validations.ck_null_validator import CKNullValidator
 
 class TestCKNullValidator(unittest.TestCase):
 

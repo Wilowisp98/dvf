@@ -2,7 +2,7 @@ import csv
 from pathlib import Path
 from typing import Any, Dict, Iterator
 
-from src.readers.base_reader import BaseReader
+from src.dvf.readers.base_reader import BaseReader
 
 class CSVReader(BaseReader):
     def __init__(self, file_path: Path):

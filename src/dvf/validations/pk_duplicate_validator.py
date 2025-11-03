@@ -1,5 +1,5 @@
 from typing import Any, Dict, List, Set, Optional
-from src.validations.base_validator import BaseValidator
+from src.dvf.validations.base_validator import BaseValidator
 
 class PKDuplicateValidator(BaseValidator):
     def __init__(self, primary_key: Optional[str]):

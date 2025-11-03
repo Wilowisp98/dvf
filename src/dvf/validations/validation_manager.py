@@ -1,5 +1,5 @@
 from typing import List, Dict, Any
-from src.validations.base_validator import BaseValidator
+from src.dvf.validations.base_validator import BaseValidator
 
 class ValidationManager:
     def __init__(self, validators: List[BaseValidator]):

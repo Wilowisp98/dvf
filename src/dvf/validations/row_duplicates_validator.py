@@ -1,5 +1,5 @@
 from typing import Any, Dict, List, Set, Optional
-from src.validations.base_validator import BaseValidator
+from src.dvf.validations.base_validator import BaseValidator
 
 class RowDuplicateValidator(BaseValidator):
     def __init__(self):

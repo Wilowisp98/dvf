@@ -1,5 +1,5 @@
 import unittest
-from src.validations.schema_validator import SchemaValidator
+from src.dvf.validations.schema_validator import SchemaValidator
 
 class TestSchemaValidator(unittest.TestCase):
     

@@ -1,5 +1,5 @@
 import unittest
-from src.validations.ck_duplicates_validator import CKDuplicateValidator
+from src.dvf.validations.ck_duplicates_validator import CKDuplicateValidator
 
 class TestCKDuplicateValidator(unittest.TestCase):
     

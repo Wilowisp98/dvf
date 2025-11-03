@@ -3,16 +3,16 @@ from pathlib import Path
 from typing import List
 import time 
 
-from src.config.config_loader import ConfigLoader
-from src.readers.reader_factory import ReaderFactory
-from src.validations.validation_manager import ValidationManager
-from src.validations.pk_null_validator import PKNullValidator
-from src.validations.pk_duplicate_validator import PKDuplicateValidator
-from src.validations.ck_null_validator import CKNullValidator
-from src.validations.ck_duplicates_validator import CKDuplicateValidator
-from src.validations.row_duplicates_validator import RowDuplicateValidator
-from src.validations.schema_validator import SchemaValidator
-from src.utils import parse_args, generate_filename, ValidationReporter
+from src.dvf.config.config_loader import ConfigLoader
+from src.dvf.readers.reader_factory import ReaderFactory
+from src.dvf.validations.validation_manager import ValidationManager
+from src.dvf.validations.pk_null_validator import PKNullValidator
+from src.dvf.validations.pk_duplicate_validator import PKDuplicateValidator
+from src.dvf.validations.ck_null_validator import CKNullValidator
+from src.dvf.validations.ck_duplicates_validator import CKDuplicateValidator
+from src.dvf.validations.row_duplicates_validator import RowDuplicateValidator
+from src.dvf.validations.schema_validator import SchemaValidator
+from src.dvf.utils import parse_args, generate_filename, ValidationReporter
 
 def load_app_config(config_path: Path):
     try:
@@ -75,6 +75,3 @@ def main():
     
     if args.profile:
         reporter.log_profile(start_time, end_time)
-
-if __name__ == "__main__":
-    main()

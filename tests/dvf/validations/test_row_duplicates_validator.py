@@ -1,5 +1,5 @@
 import unittest
-from src.validations.row_duplicates_validator import RowDuplicateValidator
+from src.dvf.validations.row_duplicates_validator import RowDuplicateValidator
 
 class TestRowDuplicateValidator(unittest.TestCase):
     

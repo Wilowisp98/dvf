@@ -1,7 +1,7 @@
 import yaml
 from pathlib import Path
 
-from src.config.config_model import Config
+from src.dvf.config.config_model import Config
 
 class ConfigLoader:
     @staticmethod

@@ -3,13 +3,13 @@ from pathlib import Path
 
 from pydantic import ValidationError
 
-from src.config.config_loader import ConfigLoader
-from src.config.config_loader import Config
+from src.dvf.config.config_loader import ConfigLoader
+from src.dvf.config.config_loader import Config
 
 class TestConfig(unittest.TestCase):
 
     def test_valid_config(self):
-        path = Path("tests/config/test_files/test_config_1.yaml")
+        path = Path("tests/dvf/config/test_files/test_config_1.yaml")
 
         config = ConfigLoader.load(config_path=path)
 
@@ -22,7 +22,7 @@ class TestConfig(unittest.TestCase):
             _ = ConfigLoader.load(config_path=non_existent_path)
 
     def test_not_yaml_file(self):
-        path = Path("tests/config/test_files/test_config_2.json")
+        path = Path("tests/dvf/config/test_files/test_config_2.json")
 
         with self.assertRaises(ValueError):
             _ = ConfigLoader.load(config_path=path)

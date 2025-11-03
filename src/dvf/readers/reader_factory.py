@@ -1,11 +1,13 @@
 from pathlib import Path
 
-from src.readers.csv_reader import CSVReader
-from src.readers.base_reader import BaseReader
+from src.dvf.readers.parquet_reader import ParquetReader
+from src.dvf.readers.csv_reader import CSVReader
+from src.dvf.readers.base_reader import BaseReader
 
 class ReaderFactory:
     _readers = {
-        ".csv": CSVReader
+        ".csv": CSVReader,
+        ".parquet": ParquetReader
     }
 
     @classmethod

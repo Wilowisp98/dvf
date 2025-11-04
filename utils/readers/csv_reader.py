@@ -6,9 +6,10 @@ import itertools
 from utils.readers.base_reader import BaseReader
 
 class CSVReader(BaseReader):
-    def __init__(self, file_path: Path):
+    def __init__(self, file_path: Path, batch_size: int = 500):
         super().__init__(file_path)
         self.reader_schema = None
+        self.batch_size = batch_size
 
     def get_schema(self, file: Any):
         if self.reader_schema is None:
